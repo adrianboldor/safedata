@@ -31,6 +31,7 @@ public class safedataServlet extends HttpServlet {
         System.out.println("got request to list servers... ");
         safedataAPI apiObject = new safedataAPI();
         JSONObject json = new JSONObject();
+        json.put("server", server);
         json.put("policyDescription", apiObject.getPolicies(username,password,server));
         String result=json.toString();
         System.out.println("JSON response is"+result);
