@@ -41,15 +41,15 @@ public class safedataAPI {
 
         try {
             policies = port.getPolicies();
-            System.out.println(policies.size());
+            System.out.println("Number of ploicies found:"+policies.size());
             for (int i=0; i<policies.size(); i++) {
 
-                System.out.println(policies.get(i).getName());
-               String test = policies.get(i).getName();
-               System.out.println(test);
-                policyDescription.add(test);
+                //System.out.println(policies.get(i).getName());
+               String policyName = policies.get(i).getName();
+               System.out.println(policyName);
+                policyDescription.add(policyName);
 
-                System.out.println(policyDescription.get(i));
+                //System.out.println(policyDescription.get(i));
             }
 
 

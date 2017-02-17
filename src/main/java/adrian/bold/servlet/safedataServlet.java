@@ -28,15 +28,18 @@ public class safedataServlet extends HttpServlet {
 
         //System.out.println("password is"+password);
 
-        System.out.println("got request to list servers... ");
+        System.out.println("got request to return servers on "+server+" ... ");
+
         safedataAPI apiObject = new safedataAPI();
         JSONObject json = new JSONObject();
+
         json.put("server", server);
         json.put("policyDescription", apiObject.getPolicies(username,password,server));
+
         String result=json.toString();
         System.out.println("JSON response is"+result);
         returnJsonResponse(response, result);
-        System.out.println("...server list sent ");
+        System.out.println("..."+server+" list sent ");
 
     }
 

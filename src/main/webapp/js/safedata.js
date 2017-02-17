@@ -5,21 +5,29 @@
 
 
 function loadPolicyDescription(hostname){
+    //
+    // if(typeof username == "undefined") {
+    //     alert("Input Username");
+    // }else if(typeof password == "undefined") {
+    //     alert("Input Password");
+    // }else {
 
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
 
-    if(typeof hostname == "undefined") {
-        hostname = document.getElementById('hostname').value;
-    }
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
 
-    password = encodeURIComponent(password);
-    //window.alert(password);
-    $.ajax  ({
-        url: 'safeServlet?server='+hostname+'&username='+username+'&password='+password
-    }).done(function (response) {
-        listPolicyDescription(response.policyDescription,response.server)
-    })
+        if (typeof hostname == "undefined") {
+            hostname = document.getElementById('hostname').value;
+        }
+
+        password = encodeURIComponent(password);
+        //window.alert(password);
+        $.ajax({
+            url: 'safeServlet?server=' + hostname + '&username=' + username + '&password=' + password
+        }).done(function (response) {
+            listPolicyDescription(response.policyDescription, response.server)
+        })
+   // }
 }
 
 
@@ -34,14 +42,17 @@ function loadAllPolicyNames(){
 
 
 function listPolicyDescription(policyDescription,backupServer) {
+
+
     var list = document.getElementById('descriptionList');
 
-    var listHtml = '</br><b>'+backupServer+'</b></br>';
+    var listHtml = '<div id="'+backupServer+'"></br><b>'+backupServer+'</b></br>';
 
     for (var i = 0; i < policyDescription.length; i++) {
         var server = policyDescription[i];
         listHtml=listHtml+server+'</br>';
     }
+    listHtml = listHtml+'</div>';
     list.innerHTML += listHtml;
 
 }
