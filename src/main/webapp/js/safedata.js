@@ -44,15 +44,31 @@ function loadAllPolicyNames(){
 function listPolicyDescription(policyDescription,backupServer) {
 
 
-    var list = document.getElementById('descriptionList');
+    var list;
+    var date = new Date();
+    var listHtml ='<b>'+backupServer+'</b></br><i>Synced on '+date.toLocaleTimeString()+'</i></br>';
 
-    var listHtml = '<div id="'+backupServer+'"></br><b>'+backupServer+'</b></br>';
 
     for (var i = 0; i < policyDescription.length; i++) {
         var server = policyDescription[i];
         listHtml=listHtml+server+'</br>';
     }
-    listHtml = listHtml+'</div>';
-    list.innerHTML += listHtml;
+
+
+
+    if ( !document.getElementById(backupServer)){
+        listHtml = '<div id='+backupServer+'>'+listHtml;
+        listHtml = listHtml+'</div><br>';
+        list = document.getElementById('descriptionList');
+        list.innerHTML += listHtml;
+    }
+    else{
+        list = document.getElementById(backupServer);
+        list.innerHTML = listHtml;
+    }
+
+
+
+
 
 }

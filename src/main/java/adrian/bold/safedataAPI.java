@@ -11,7 +11,7 @@ import safedata.*;
  * Created by Tehnic3 on 2/12/2017.
  */
 public class safedataAPI {
-    @WebServiceRef(wsdlLocation="file:/C:/Users/Tehnic3/Desktop/view-source_safedata1.r1soft.ro_9080_Policy2_wsdl.wsdl")
+    @WebServiceRef(wsdlLocation="file:/E:/IntelliJp/safedata/src/main/java/safedata/view-source_safedata1.r1soft.ro_9080_Policy2_wsdl.wsdl")
 
 
 
