@@ -5,16 +5,21 @@
 
 
 function loadPolicyDescription(hostname){
-    //
-    // if(typeof username == "undefined") {
-    //     alert("Input Username");
-    // }else if(typeof password == "undefined") {
-    //     alert("Input Password");
-    // }else {
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    if(username==null || username=="") {
+
+        alert("Input Username "+username);
+        //location.href = window.location.href;
+    }else if(password==null || password=="") {
+        alert("Input Password "+password);
+        //location.href = window.location.href;
+    }else {
 
 
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+
 
         if (typeof hostname == "undefined") {
             hostname = document.getElementById('hostname').value;
@@ -27,7 +32,7 @@ function loadPolicyDescription(hostname){
         }).done(function (response) {
             listPolicyDescription(response.policyDescription, response.server)
         })
-   // }
+   }
 }
 
 
