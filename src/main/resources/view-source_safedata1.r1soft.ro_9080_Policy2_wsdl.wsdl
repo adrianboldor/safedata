@@ -1,0 +1,1206 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="Policy" targetNamespace="http://policy.apiV2.server.backup.r1soft.com/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://policy.apiV2.server.backup.r1soft.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://policy.apiV2.server.backup.r1soft.com/" xmlns:tns="http://policy.apiV2.server.backup.r1soft.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="archiveScheduleInstance" type="tns:archiveScheduleInstance" />
+<xs:element name="device" type="tns:device" />
+<xs:element name="diskSafe" type="tns:diskSafe" />
+<xs:element name="exchangeSettings" type="tns:exchangeSettings" />
+<xs:element name="fileExclusionProperty" type="tns:fileExclusionProperty" />
+<xs:element name="frequencyValues" type="tns:frequencyValues" />
+<xs:element name="policy" type="tns:policy" />
+<xs:element name="retentionSettings" type="tns:retentionSettings" />
+<xs:element name="sqlServerSettings" type="tns:sqlServerSettings" />
+<xs:element name="taskExecutionContext" type="tns:taskExecutionContext" />
+<xs:complexType name="policy">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="archiveScheduleInstanceList" nillable="true" type="tns:archiveScheduleInstance" />
+<xs:element minOccurs="0" name="backingFileLocation" type="xs:string" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="controlPanelInstanceList" nillable="true" type="tns:controlPanelInstance" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="databaseInstanceList" nillable="true" type="tns:databaseInstance" />
+<xs:element minOccurs="0" name="description" type="xs:string" />
+<xs:element minOccurs="0" name="diskSafeID" type="xs:string" />
+<xs:element minOccurs="0" name="diskSafeVerificationScheduleFrequencyValues" type="tns:frequencyValues" />
+<xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="errors" nillable="true" type="xs:string" />
+<xs:element minOccurs="0" name="exchangeSettings" type="tns:exchangeSettings" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="excludeList" nillable="true" type="tns:fileExclusionProperty" />
+<xs:element minOccurs="0" name="forceFullBlockScan" type="xs:boolean" />
+<xs:element minOccurs="0" name="id" type="xs:string" />
+<xs:element minOccurs="0" name="lastReplicationRunTime" type="xs:dateTime" />
+<xs:element minOccurs="0" name="localArchivingEnabled" type="xs:boolean" />
+<xs:element minOccurs="0" name="localRetentionSettings" type="tns:retentionSettings" />
+<xs:element minOccurs="0" name="mergeScheduleFrequencyType" type="tns:frequencyType" />
+<xs:element minOccurs="0" name="mergeScheduleFrequencyValues" type="tns:frequencyValues" />
+<xs:element minOccurs="0" name="multiVolumeSnapshot" type="xs:boolean" />
+<xs:element minOccurs="0" name="name" type="xs:string" />
+<xs:element minOccurs="0" name="nextReplicationRunTime" type="xs:dateTime" />
+<xs:element minOccurs="0" name="recoveryPointLimit" type="xs:int" />
+<xs:element minOccurs="0" name="remoteRetentionSettings" type="tns:retentionSettings" />
+<xs:element minOccurs="0" name="replicateAfterArchiving" type="xs:boolean" />
+<xs:element minOccurs="0" name="replicationScheduleFrequencyType" type="tns:frequencyType" />
+<xs:element minOccurs="0" name="replicationScheduleFrequencyValues" type="tns:frequencyValues" />
+<xs:element minOccurs="0" name="SQLServerSettings" type="tns:sqlServerSettings" />
+<xs:element minOccurs="0" name="state" type="tns:policyState" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="warnings" nillable="true" type="xs:string" />
+<xs:element minOccurs="0" name="diskSafeVerificationScheduleFrequencyType" type="tns:frequencyType" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="archiveScheduleInstance">
+<xs:sequence>
+<xs:element minOccurs="0" name="archiveScheduleFrequencyValues" type="tns:frequencyValues" />
+<xs:element minOccurs="0" name="archiveScheduleType" type="tns:archiveScheduleType" />
+<xs:element minOccurs="0" name="id" type="xs:string" />
+<xs:element minOccurs="0" name="replicate" type="xs:boolean" />
+<xs:element minOccurs="0" name="retentionCount" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="frequencyValues">
+<xs:sequence>
+<xs:element minOccurs="0" name="dayOfMonth" type="xs:int" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="daysOfMonth" nillable="true" type="xs:int" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="daysOfWeek" nillable="true" type="tns:daysOfWeek" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="hoursOfDay" nillable="true" type="xs:int" />
+<xs:element minOccurs="0" name="minutelyValue" type="xs:int" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="monthsOfYear" nillable="true" type="tns:monthsOfYear" />
+<xs:element minOccurs="0" name="startingHour" type="xs:int" />
+<xs:element minOccurs="0" name="startingMinute" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="controlPanelInstance">
+<xs:sequence>
+<xs:element name="advancedOptions">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="xs:string" />
+<xs:element minOccurs="0" name="value" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="controlPanelType" type="tns:controlPanelType" />
+<xs:element minOccurs="0" name="description" type="xs:string" />
+<xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+<xs:element minOccurs="0" name="id" type="xs:string" />
+<xs:element minOccurs="0" name="name" type="xs:string" />
+<xs:element minOccurs="0" name="virtuozzoContainerID" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="databaseInstance">
+<xs:sequence>
+<xs:element name="advancedOptions">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="tns:options" />
+<xs:element minOccurs="0" name="value" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="dataBaseType" type="tns:dataBaseType" />
+<xs:element minOccurs="0" name="dataDirectory" type="xs:string" />
+<xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+<xs:element minOccurs="0" name="hostName" type="xs:string" />
+<xs:element minOccurs="0" name="installDirectory" type="xs:string" />
+<xs:element minOccurs="0" name="name" type="xs:string" />
+<xs:element minOccurs="0" name="password" type="xs:string" />
+<xs:element minOccurs="0" name="portNumber" type="xs:int" />
+<xs:element minOccurs="0" name="useAlternateDataDirectory" type="xs:boolean" />
+<xs:element minOccurs="0" name="useAlternateHostname" type="xs:boolean" />
+<xs:element minOccurs="0" name="useAlternateInstallDirectory" type="xs:boolean" />
+<xs:element minOccurs="0" name="username" type="xs:string" />
+<xs:element minOccurs="0" name="virtuozzoContainerID" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="exchangeSettings">
+<xs:sequence>
+<xs:element minOccurs="0" name="exchangeFrequencyValue" type="xs:int" />
+<xs:element minOccurs="0" name="exchangeVerificationFrequency" type="tns:exchangeVerificationFrequency" />
+<xs:element minOccurs="0" name="protectALLInstances" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="fileExclusionProperty">
+<xs:sequence>
+<xs:element minOccurs="0" name="exclusionPattern" type="xs:string" />
+<xs:element minOccurs="0" name="isRecursive" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="retentionSettings">
+<xs:sequence>
+<xs:element minOccurs="0" name="dailyLimit" type="xs:int" />
+<xs:element minOccurs="0" name="hourlyLimit" type="xs:int" />
+<xs:element minOccurs="0" name="monthlyLimit" type="xs:int" />
+<xs:element minOccurs="0" name="weeklyLimit" type="xs:int" />
+<xs:element minOccurs="0" name="yearlyLimit" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sqlServerSettings">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="includeInstanceList" nillable="true" type="xs:string" />
+<xs:element minOccurs="0" name="protectALLInstances" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="taskExecutionContext">
+<xs:sequence>
+<xs:element minOccurs="0" name="agentId" type="xs:string" />
+<xs:element minOccurs="0" name="completionTime" type="xs:dateTime" />
+<xs:element minOccurs="0" name="executionTime" type="xs:dateTime" />
+<xs:element minOccurs="0" name="id" type="xs:string" />
+<xs:element minOccurs="0" name="runningStatusKey" type="xs:string" />
+<xs:element minOccurs="0" name="runningStatusMessage" type="xs:string" />
+<xs:element minOccurs="0" name="scheduledTime" type="xs:dateTime" />
+<xs:element minOccurs="0" name="taskInstanceId" type="xs:string" />
+<xs:element minOccurs="0" name="taskState" type="tns:taskState" />
+<xs:element minOccurs="0" name="taskType" type="tns:taskType" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="diskSafe">
+<xs:sequence>
+<xs:element minOccurs="0" name="agentID" type="xs:string" />
+<xs:element minOccurs="0" name="amazonGlacierAccessKey" type="xs:string" />
+<xs:element minOccurs="0" name="amazonGlacierEndPoint" type="xs:string" />
+<xs:element minOccurs="0" name="amazonGlacierSecretKey" type="xs:string" />
+<xs:element minOccurs="0" name="amazonGlacierVault" type="xs:string" />
+<xs:element minOccurs="0" name="backupPartitionTable" type="xs:boolean" />
+<xs:element minOccurs="0" name="backupUnmountedDevices" type="xs:boolean" />
+<xs:element minOccurs="0" name="bytesOnDisk" type="xs:long" />
+<xs:element minOccurs="0" name="compressionLevel" type="tns:compressionLevel" />
+<xs:element minOccurs="0" name="compressionType" type="tns:compressionType" />
+<xs:element minOccurs="0" name="deltasInDiskSafe" type="xs:long" />
+<xs:element minOccurs="0" name="description" type="xs:string" />
+<xs:element minOccurs="0" name="deviceBackupType" type="tns:deviceBackupType" />
+<xs:element minOccurs="0" name="deviceCount" type="xs:int" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="deviceList" nillable="true" type="tns:device" />
+<xs:element name="diskSafeAttributeMap">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="key" type="tns:diskSafeAttributes" />
+<xs:element minOccurs="0" name="value" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="diskSafeEncryptionPassphrase" type="xs:string" />
+<xs:element minOccurs="0" name="diskSafeEncryptionType" type="tns:diskSafeEncryptionType" />
+<xs:element minOccurs="0" name="hasAvailableRecoveryPoint" type="xs:boolean" />
+<xs:element minOccurs="0" name="id" type="xs:string" />
+<xs:element minOccurs="0" name="open" type="xs:boolean" />
+<xs:element minOccurs="0" name="path" type="xs:string" />
+<xs:element minOccurs="0" name="pushEncryptionKeyToAgent" type="xs:boolean" />
+<xs:element minOccurs="0" name="recoveryPointCount" type="xs:long" />
+<xs:element minOccurs="0" name="replicationAction" type="tns:replicationAction" />
+<xs:element minOccurs="0" name="replicationCommand" type="xs:string" />
+<xs:element minOccurs="0" name="replicationEnabled" type="xs:boolean" />
+<xs:element minOccurs="0" name="replicationPath" type="xs:string" />
+<xs:element minOccurs="0" name="size" type="xs:long" />
+<xs:element minOccurs="0" name="sizeOfDeltasInDiskSafe" type="xs:long" />
+<xs:element minOccurs="0" name="totalFreePages" type="xs:long" />
+<xs:element minOccurs="0" name="totalFreePagesBytes" type="xs:long" />
+<xs:element minOccurs="0" name="totalPageBytes" type="xs:long" />
+<xs:element minOccurs="0" name="totalPageCount" type="xs:long" />
+<xs:element minOccurs="0" name="volumeID" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="device">
+<xs:sequence>
+<xs:element minOccurs="0" name="allocatedBlocks" type="xs:long" />
+<xs:element minOccurs="0" name="blockSize" type="xs:int" />
+<xs:element minOccurs="0" name="capacity" type="xs:long" />
+<xs:element minOccurs="0" name="contentID" type="xs:string" />
+<xs:element minOccurs="0" name="deviceContentType" type="xs:string" />
+<xs:element minOccurs="0" name="devicePath" type="xs:string" />
+<xs:element minOccurs="0" name="enabled" type="xs:boolean" />
+<xs:element minOccurs="0" name="mountPoint" type="xs:string" />
+<xs:element minOccurs="0" name="mounted" type="xs:boolean" />
+<xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+<xs:element minOccurs="0" name="totalBlocks" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="daysOfWeek">
+<xs:restriction base="xs:string">
+<xs:enumeration value="SUNDAY" />
+<xs:enumeration value="MONDAY" />
+<xs:enumeration value="TUESDAY" />
+<xs:enumeration value="WEDNESDAY" />
+<xs:enumeration value="THURSDAY" />
+<xs:enumeration value="FRIDAY" />
+<xs:enumeration value="SATURDAY" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="monthsOfYear">
+<xs:restriction base="xs:string">
+<xs:enumeration value="JANUARY" />
+<xs:enumeration value="FEBRUARY" />
+<xs:enumeration value="MARCH" />
+<xs:enumeration value="APRIL" />
+<xs:enumeration value="MAY" />
+<xs:enumeration value="JUNE" />
+<xs:enumeration value="JULY" />
+<xs:enumeration value="AUGUST" />
+<xs:enumeration value="SEPTEMBER" />
+<xs:enumeration value="OCTOBER" />
+<xs:enumeration value="NOVEMBER" />
+<xs:enumeration value="DECEMBER" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="archiveScheduleType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="HOURLY" />
+<xs:enumeration value="DAILY" />
+<xs:enumeration value="WEEKLY" />
+<xs:enumeration value="MONTHLY" />
+<xs:enumeration value="YEARLY" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="controlPanelType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="CPANEL" />
+<xs:enumeration value="PLESK" />
+<xs:enumeration value="VIRTUOZZO" />
+<xs:enumeration value="PARALLELSPRO" />
+<xs:enumeration value="INTERWORX" />
+<xs:enumeration value="DIRECTADMIN" />
+<xs:enumeration value="PARALLELS_H_SPHERE" />
+<xs:enumeration value="LINUX" />
+<xs:enumeration value="CUSTOM" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="options">
+<xs:restriction base="xs:string">
+<xs:enumeration value="DO_TABLE_STATS_OPTION" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="dataBaseType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="MYSQL" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="exchangeVerificationFrequency">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NEVER_VERIFY" />
+<xs:enumeration value="ALWAYS_VERIFY" />
+<xs:enumeration value="AFTER_EVERY_X_SUCCESSFUL_BACKUP" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="frequencyType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ON_DEMAND" />
+<xs:enumeration value="MINUTELY" />
+<xs:enumeration value="HOURLY" />
+<xs:enumeration value="DAILY" />
+<xs:enumeration value="WEEKLY" />
+<xs:enumeration value="MONTHLY" />
+<xs:enumeration value="YEARLY" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="policyState">
+<xs:restriction base="xs:string">
+<xs:enumeration value="UNKNOWN" />
+<xs:enumeration value="ERROR" />
+<xs:enumeration value="ALERT" />
+<xs:enumeration value="OK" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="taskState">
+<xs:restriction base="xs:string">
+<xs:enumeration value="FINISHED" />
+<xs:enumeration value="RUNNING" />
+<xs:enumeration value="QUEUED" />
+<xs:enumeration value="CANCELLED" />
+<xs:enumeration value="ERROR" />
+<xs:enumeration value="DUPLICATE" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="taskType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="DATA_PROTECTION_POLICY" />
+<xs:enumeration value="FILE_RESTORE" />
+<xs:enumeration value="MERGE_RECOVERY_POINTS" />
+<xs:enumeration value="VACUUM" />
+<xs:enumeration value="DATABASE_RESTORE" />
+<xs:enumeration value="EXCHANGE_RESTORE" />
+<xs:enumeration value="BARE_METAL_RESTORE" />
+<xs:enumeration value="EMAIL_REPORT" />
+<xs:enumeration value="ARCHIVE" />
+<xs:enumeration value="DELETE_ARCHIVE_POINTS" />
+<xs:enumeration value="RESTORE_CONTROL_PANEL_USER_DATA" />
+<xs:enumeration value="TASK_HISTORY_CLEANUP" />
+<xs:enumeration value="DISK_SAFE_VERIFICATION" />
+<xs:enumeration value="REMOTE_AGENT_DEPLOYMENT" />
+<xs:enumeration value="DISK_SAFE_REPLICATION" />
+<xs:enumeration value="SYSTEM" />
+<xs:enumeration value="TASK_HISTORY_IMPORT" />
+<xs:enumeration value="SEED_DRIVE_EXPORT" />
+<xs:enumeration value="RECOVERY_DRIVE_IMPORT" />
+<xs:enumeration value="DISK_SAFE_EXPORT" />
+<xs:enumeration value="COPY_DISK_SAFE" />
+<xs:enumeration value="GET_AGENT_LOGS" />
+<xs:enumeration value="EXPORT_TO_OVA" />
+<xs:enumeration value="THROTTLE_DATA_TRANSFER" />
+<xs:enumeration value="RECOVERY_DRIVE_WIPE" />
+<xs:enumeration value="COMPACTION" />
+<xs:enumeration value="BLANK_DISK_SAFE_TASK" />
+<xs:enumeration value="REMOTE_REPLICATION_RECEIVE_TASK" />
+<xs:enumeration value="REMOTE_REPLICATION_SEND_TASK" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="compressionLevel">
+<xs:restriction base="xs:string">
+<xs:enumeration value="LOW" />
+<xs:enumeration value="MEDIUM" />
+<xs:enumeration value="HIGH" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="compressionType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NONE" />
+<xs:enumeration value="ZLIB" />
+<xs:enumeration value="QUICKLZ" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="deviceBackupType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="AUTO_ADD_DEVICES" />
+<xs:enumeration value="CHOOSE_DEVICES_TO_BACKUP" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="diskSafeAttributes">
+<xs:restriction base="xs:string">
+<xs:enumeration value="FILE_EXCLUDES_ENABLED" />
+<xs:enumeration value="REPLICATION_FREQUENCY_LIMIT" />
+<xs:enumeration value="ARCHIVING_ENABLED" />
+<xs:enumeration value="CONTROLPANELS_ENABLED" />
+<xs:enumeration value="RECOVERY_POINT_LIMIT" />
+<xs:enumeration value="ARCHIVE_POINT_LIMIT" />
+<xs:enumeration value="QUOTA_TYPE" />
+<xs:enumeration value="SOFT_QUOTA_VALUE" />
+<xs:enumeration value="HARD_QUOTA_VALUE" />
+<xs:enumeration value="DATABASE_BACKUPS_ENABLED" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="diskSafeEncryptionType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NONE" />
+<xs:enumeration value="XTS_AES_256" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="replicationAction">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NONE" />
+<xs:enumeration value="EXECUTE_SCRIPT" />
+<xs:enumeration value="AMAZON_GLACIER" />
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="UnknownObjectFault" type="tns:UnknownObjectFault" />
+<xs:complexType name="UnknownObjectFault">
+<xs:sequence>
+<xs:element name="code" nillable="true" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="OperationFailedFault" type="tns:OperationFailedFault" />
+<xs:complexType name="OperationFailedFault">
+<xs:sequence>
+<xs:element name="code" nillable="true" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="AccessControlFault" type="tns:AccessControlFault" />
+<xs:complexType name="AccessControlFault">
+<xs:sequence>
+<xs:element name="code" nillable="true" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getPolicyById" type="tns:getPolicyById" />
+<xs:complexType name="getPolicyById">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getPolicyByIdResponse" type="tns:getPolicyByIdResponse" />
+<xs:complexType name="getPolicyByIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="deletePolicyById" type="tns:deletePolicyById" />
+<xs:complexType name="deletePolicyById">
+<xs:sequence>
+<xs:element minOccurs="0" name="policyID" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="deletePolicyByIdResponse" type="tns:deletePolicyByIdResponse" />
+<xs:complexType name="deletePolicyByIdResponse">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="updatePolicy" type="tns:updatePolicy" />
+<xs:complexType name="updatePolicy">
+<xs:sequence>
+<xs:element minOccurs="0" name="policy" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="updatePolicyResponse" type="tns:updatePolicyResponse" />
+<xs:complexType name="updatePolicyResponse">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="enablePolicy" type="tns:enablePolicy" />
+<xs:complexType name="enablePolicy">
+<xs:sequence>
+<xs:element minOccurs="0" name="policy" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="enablePolicyResponse" type="tns:enablePolicyResponse" />
+<xs:complexType name="enablePolicyResponse">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="runDiskSafeVerification" type="tns:runDiskSafeVerification" />
+<xs:complexType name="runDiskSafeVerification">
+<xs:sequence>
+<xs:element minOccurs="0" name="policy" type="tns:policy" />
+<xs:element minOccurs="0" name="password" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="runDiskSafeVerificationResponse" type="tns:runDiskSafeVerificationResponse" />
+<xs:complexType name="runDiskSafeVerificationResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:taskExecutionContext" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="createPolicy" type="tns:createPolicy" />
+<xs:complexType name="createPolicy">
+<xs:sequence>
+<xs:element minOccurs="0" name="policy" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="createPolicyResponse" type="tns:createPolicyResponse" />
+<xs:complexType name="createPolicyResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="deletePolicy" type="tns:deletePolicy" />
+<xs:complexType name="deletePolicy">
+<xs:sequence>
+<xs:element minOccurs="0" name="policy" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="deletePolicyResponse" type="tns:deletePolicyResponse" />
+<xs:complexType name="deletePolicyResponse">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="getPolicyByDiskSafe" type="tns:getPolicyByDiskSafe" />
+<xs:complexType name="getPolicyByDiskSafe">
+<xs:sequence>
+<xs:element minOccurs="0" name="disksafe" type="tns:diskSafe" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getPolicyByDiskSafeResponse" type="tns:getPolicyByDiskSafeResponse" />
+<xs:complexType name="getPolicyByDiskSafeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="disablePolicy" type="tns:disablePolicy" />
+<xs:complexType name="disablePolicy">
+<xs:sequence>
+<xs:element minOccurs="0" name="policy" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="disablePolicyResponse" type="tns:disablePolicyResponse" />
+<xs:complexType name="disablePolicyResponse">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="getPolicyByDiskSafeId" type="tns:getPolicyByDiskSafeId" />
+<xs:complexType name="getPolicyByDiskSafeId">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getPolicyByDiskSafeIdResponse" type="tns:getPolicyByDiskSafeIdResponse" />
+<xs:complexType name="getPolicyByDiskSafeIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="runPolicyByID" type="tns:runPolicyByID" />
+<xs:complexType name="runPolicyByID">
+<xs:sequence>
+<xs:element minOccurs="0" name="policyID" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="runPolicyByIDResponse" type="tns:runPolicyByIDResponse" />
+<xs:complexType name="runPolicyByIDResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:taskExecutionContext" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="getPolicyIDs" type="tns:getPolicyIDs" />
+<xs:complexType name="getPolicyIDs">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="getPolicyIDsResponse" type="tns:getPolicyIDsResponse" />
+<xs:complexType name="getPolicyIDsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="runPolicy" type="tns:runPolicy" />
+<xs:complexType name="runPolicy">
+<xs:sequence>
+<xs:element minOccurs="0" name="policy" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="runPolicyResponse" type="tns:runPolicyResponse" />
+<xs:complexType name="runPolicyResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:taskExecutionContext" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="runDiskSafeVerificationByPolicyID" type="tns:runDiskSafeVerificationByPolicyID" />
+<xs:complexType name="runDiskSafeVerificationByPolicyID">
+<xs:sequence>
+<xs:element minOccurs="0" name="policyID" type="xs:string" />
+<xs:element minOccurs="0" name="password" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="runDiskSafeVerificationByPolicyIDResponse" type="tns:runDiskSafeVerificationByPolicyIDResponse" />
+<xs:complexType name="runDiskSafeVerificationByPolicyIDResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:taskExecutionContext" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="refreshPolicyFromDiskSafe" type="tns:refreshPolicyFromDiskSafe" />
+<xs:complexType name="refreshPolicyFromDiskSafe">
+<xs:sequence>
+<xs:element minOccurs="0" name="diskSafeID" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:element name="refreshPolicyFromDiskSafeResponse" type="tns:refreshPolicyFromDiskSafeResponse" />
+<xs:complexType name="refreshPolicyFromDiskSafeResponse">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="getPolicies" type="tns:getPolicies" />
+<xs:complexType name="getPolicies">
+<xs:sequence />
+</xs:complexType>
+<xs:element name="getPoliciesResponse" type="tns:getPoliciesResponse" />
+<xs:complexType name="getPoliciesResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:policy" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getPolicies">
+    <wsdl:part element="tns:getPolicies" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePolicyResponse">
+    <wsdl:part element="tns:updatePolicyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyByDiskSafeId">
+    <wsdl:part element="tns:getPolicyByDiskSafeId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runPolicy">
+    <wsdl:part element="tns:runPolicy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPolicyResponse">
+    <wsdl:part element="tns:createPolicyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePolicyResponse">
+    <wsdl:part element="tns:deletePolicyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="disablePolicy">
+    <wsdl:part element="tns:disablePolicy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="OperationFailedFault">
+    <wsdl:part element="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runDiskSafeVerificationResponse">
+    <wsdl:part element="tns:runDiskSafeVerificationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enablePolicyResponse">
+    <wsdl:part element="tns:enablePolicyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runPolicyResponse">
+    <wsdl:part element="tns:runPolicyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyByDiskSafe">
+    <wsdl:part element="tns:getPolicyByDiskSafe" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createPolicy">
+    <wsdl:part element="tns:createPolicy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyIDs">
+    <wsdl:part element="tns:getPolicyIDs" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enablePolicy">
+    <wsdl:part element="tns:enablePolicy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="refreshPolicyFromDiskSafe">
+    <wsdl:part element="tns:refreshPolicyFromDiskSafe" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyByDiskSafeResponse">
+    <wsdl:part element="tns:getPolicyByDiskSafeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UnknownObjectFault">
+    <wsdl:part element="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runPolicyByIDResponse">
+    <wsdl:part element="tns:runPolicyByIDResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePolicyByIdResponse">
+    <wsdl:part element="tns:deletePolicyByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePolicyById">
+    <wsdl:part element="tns:deletePolicyById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runDiskSafeVerificationByPolicyID">
+    <wsdl:part element="tns:runDiskSafeVerificationByPolicyID" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyById">
+    <wsdl:part element="tns:getPolicyById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="refreshPolicyFromDiskSafeResponse">
+    <wsdl:part element="tns:refreshPolicyFromDiskSafeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPoliciesResponse">
+    <wsdl:part element="tns:getPoliciesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyIDsResponse">
+    <wsdl:part element="tns:getPolicyIDsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runDiskSafeVerificationByPolicyIDResponse">
+    <wsdl:part element="tns:runDiskSafeVerificationByPolicyIDResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyByDiskSafeIdResponse">
+    <wsdl:part element="tns:getPolicyByDiskSafeIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AccessControlFault">
+    <wsdl:part element="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runPolicyByID">
+    <wsdl:part element="tns:runPolicyByID" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="disablePolicyResponse">
+    <wsdl:part element="tns:disablePolicyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePolicy">
+    <wsdl:part element="tns:updatePolicy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPolicyByIdResponse">
+    <wsdl:part element="tns:getPolicyByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="runDiskSafeVerification">
+    <wsdl:part element="tns:runDiskSafeVerification" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePolicy">
+    <wsdl:part element="tns:deletePolicy" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PolicyService">
+    <wsdl:operation name="getPolicyById">
+      <wsdl:input message="tns:getPolicyById" name="getPolicyById">
+    </wsdl:input>
+      <wsdl:output message="tns:getPolicyByIdResponse" name="getPolicyByIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePolicyById">
+      <wsdl:input message="tns:deletePolicyById" name="deletePolicyById">
+    </wsdl:input>
+      <wsdl:output message="tns:deletePolicyByIdResponse" name="deletePolicyByIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePolicy">
+      <wsdl:input message="tns:updatePolicy" name="updatePolicy">
+    </wsdl:input>
+      <wsdl:output message="tns:updatePolicyResponse" name="updatePolicyResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="enablePolicy">
+      <wsdl:input message="tns:enablePolicy" name="enablePolicy">
+    </wsdl:input>
+      <wsdl:output message="tns:enablePolicyResponse" name="enablePolicyResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="runDiskSafeVerification">
+      <wsdl:input message="tns:runDiskSafeVerification" name="runDiskSafeVerification">
+    </wsdl:input>
+      <wsdl:output message="tns:runDiskSafeVerificationResponse" name="runDiskSafeVerificationResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createPolicy">
+      <wsdl:input message="tns:createPolicy" name="createPolicy">
+    </wsdl:input>
+      <wsdl:output message="tns:createPolicyResponse" name="createPolicyResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePolicy">
+      <wsdl:input message="tns:deletePolicy" name="deletePolicy">
+    </wsdl:input>
+      <wsdl:output message="tns:deletePolicyResponse" name="deletePolicyResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyByDiskSafe">
+      <wsdl:input message="tns:getPolicyByDiskSafe" name="getPolicyByDiskSafe">
+    </wsdl:input>
+      <wsdl:output message="tns:getPolicyByDiskSafeResponse" name="getPolicyByDiskSafeResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="disablePolicy">
+      <wsdl:input message="tns:disablePolicy" name="disablePolicy">
+    </wsdl:input>
+      <wsdl:output message="tns:disablePolicyResponse" name="disablePolicyResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyByDiskSafeId">
+      <wsdl:input message="tns:getPolicyByDiskSafeId" name="getPolicyByDiskSafeId">
+    </wsdl:input>
+      <wsdl:output message="tns:getPolicyByDiskSafeIdResponse" name="getPolicyByDiskSafeIdResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="runPolicyByID">
+      <wsdl:input message="tns:runPolicyByID" name="runPolicyByID">
+    </wsdl:input>
+      <wsdl:output message="tns:runPolicyByIDResponse" name="runPolicyByIDResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyIDs">
+      <wsdl:input message="tns:getPolicyIDs" name="getPolicyIDs">
+    </wsdl:input>
+      <wsdl:output message="tns:getPolicyIDsResponse" name="getPolicyIDsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runPolicy">
+      <wsdl:input message="tns:runPolicy" name="runPolicy">
+    </wsdl:input>
+      <wsdl:output message="tns:runPolicyResponse" name="runPolicyResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="runDiskSafeVerificationByPolicyID">
+      <wsdl:input message="tns:runDiskSafeVerificationByPolicyID" name="runDiskSafeVerificationByPolicyID">
+    </wsdl:input>
+      <wsdl:output message="tns:runDiskSafeVerificationByPolicyIDResponse" name="runDiskSafeVerificationByPolicyIDResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="refreshPolicyFromDiskSafe">
+      <wsdl:input message="tns:refreshPolicyFromDiskSafe" name="refreshPolicyFromDiskSafe">
+    </wsdl:input>
+      <wsdl:output message="tns:refreshPolicyFromDiskSafeResponse" name="refreshPolicyFromDiskSafeResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AccessControlFault" name="AccessControlFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+      <wsdl:fault message="tns:UnknownObjectFault" name="UnknownObjectFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicies">
+      <wsdl:input message="tns:getPolicies" name="getPolicies">
+    </wsdl:input>
+      <wsdl:output message="tns:getPoliciesResponse" name="getPoliciesResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:OperationFailedFault" name="OperationFailedFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PolicySoapBinding" type="tns:PolicyService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getPolicyById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePolicyById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deletePolicyById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deletePolicyByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updatePolicy">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updatePolicy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updatePolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="enablePolicy">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="enablePolicy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enablePolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="createPolicy">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="createPolicy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="createPolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="runDiskSafeVerification">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="runDiskSafeVerification">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="runDiskSafeVerificationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deletePolicy">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="deletePolicy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="deletePolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyByDiskSafe">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyByDiskSafe">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyByDiskSafeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="disablePolicy">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="disablePolicy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="disablePolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyByDiskSafeId">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyByDiskSafeId">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyByDiskSafeIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="runPolicyByID">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="runPolicyByID">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="runPolicyByIDResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicyIDs">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicyIDs">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPolicyIDsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runPolicy">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="runPolicy">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="runPolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="runDiskSafeVerificationByPolicyID">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="runDiskSafeVerificationByPolicyID">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="runDiskSafeVerificationByPolicyIDResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="refreshPolicyFromDiskSafe">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="refreshPolicyFromDiskSafe">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="refreshPolicyFromDiskSafeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="AccessControlFault">
+        <soap:fault name="AccessControlFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+      <wsdl:fault name="UnknownObjectFault">
+        <soap:fault name="UnknownObjectFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getPolicies">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getPolicies">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getPoliciesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OperationFailedFault">
+        <soap:fault name="OperationFailedFault" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Policy">
+    <wsdl:port binding="tns:PolicySoapBinding" name="PolicyServiceImplPort">
+      <soap:address location="http://safedata1.r1soft.ro:9080/Policy2" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

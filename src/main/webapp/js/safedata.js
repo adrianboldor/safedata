@@ -12,10 +12,10 @@ function loadPolicyDescription(hostname){
     if(username==null || username=="") {
 
         alert("Input Username "+username);
-        //location.href = window.location.href;
+        location.href = window.location.href;
     }else if(password==null || password=="") {
         alert("Input Password "+password);
-        //location.href = window.location.href;
+        location.href = window.location.href;
     }else {
 
 
