@@ -1,6 +1,7 @@
 package adrian.bold.servlet;
 
 import adrian.bold.safedataAPI;
+import adrian.bold.safedataDatabase;
 import org.json.JSONObject;
 
 import javax.servlet.annotation.WebServlet;
@@ -34,8 +35,8 @@ public class safedataServlet extends HttpServlet {
         JSONObject json = new JSONObject();
 
         json.put("server", server);
-        //json.put("policyDescription", apiObject.getPolicies(username,password,server));
-        json.put("policyDescription", apiObject.getPoliciesDB(server));
+        json.put("policyDescription", apiObject.getPolicies(username,password,server));
+        //json.put("policyDescription", apiObject.getPolicies(server));
 
         String result=json.toString();
         System.out.println("JSON response is"+result);
