@@ -28,6 +28,11 @@ function loadPolicyDescription(hostname){
         password = encodeURIComponent(password);
         //window.alert(password);
         $.ajax({
+            url: 'safeDBServlet?server=' + hostname + '&username=' + username + '&password=' + password
+        }).done(function (response) {
+            listPolicyDescription(response.policyDescription, response.server)
+        })
+        $.ajax({
             url: 'safeServlet?server=' + hostname + '&username=' + username + '&password=' + password
         }).done(function (response) {
             listPolicyDescription(response.policyDescription, response.server)
@@ -39,7 +44,7 @@ function loadPolicyDescription(hostname){
 
 function loadAllPolicyNames(){
 
-    for(var i=0;i<20;i++){
+    for(var i=1;i<20;i++){
         loadPolicyDescription("safedata"+i+".mxserver.ro");
         loadPolicyDescription("safedata"+i+".r1soft.ro");
     }

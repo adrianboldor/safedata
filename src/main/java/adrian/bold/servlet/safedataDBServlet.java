@@ -16,16 +16,16 @@ import java.io.PrintWriter;
 /**
  * Created by Tehnic3 on 2/12/2017.
  */
-@WebServlet("/safeServlet")
-public class safedataServlet extends HttpServlet {
+@WebServlet("/safeDBServlet")
+public class safedataDBServlet extends HttpServlet {
 
 
     public void service(HttpServletRequest request, HttpServletResponse response) {
 
 
         String server = request.getParameter("server");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
 
         //System.out.println("password is"+password);
 
@@ -36,13 +36,14 @@ public class safedataServlet extends HttpServlet {
         JSONObject json = new JSONObject();
 
         json.put("server", server);
-        json.put("policyDescription", apiObject.getPolicies(username,password,server));
-
+        //json.put("policyDescription", apiObject.getPolicies(username,password,server));
+        json.put("policyDescription", safedataDbObj.getPolicies(server));
 
         String result=json.toString();
-        System.out.println("JSON response from API is"+result);
+        System.out.println("JSON response from DB is"+result);
         returnJsonResponse(response, result);
         System.out.println("..."+server+" list sent ");
+
 
 
     }

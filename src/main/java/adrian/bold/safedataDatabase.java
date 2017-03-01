@@ -29,7 +29,7 @@ public class safedataDatabase {
             // 4. create a query statement
             Statement st = conn.createStatement();
 
-            String query = "SELECT protected_servers.description FROM protected_servers FULL OUTER JOIN safedata_servers ON protected_servers.safedata_id=safedata_servers.id WHERE safedata_servers.hostname='safedata1.mxserver.ro';";
+            String query = "SELECT protected_servers.description FROM protected_servers FULL OUTER JOIN safedata_servers ON protected_servers.safedata_id=safedata_servers.id WHERE safedata_servers.hostname='"+backupServer+"';";
             // 5. execute a query
             ResultSet rs = st.executeQuery(query);
 
