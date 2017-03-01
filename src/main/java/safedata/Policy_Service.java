@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "Policy", targetNamespace = "http://policy.apiV2.server.backup.r1soft.com/", wsdlLocation = "file:C:\\fast\\safedata\\src\\main\\resources\\view-source_safedata1.r1soft.ro_9080_Policy2_wsdl.wsdl")
+@WebServiceClient(name = "Policy", targetNamespace = "http://policy.apiV2.server.backup.r1soft.com/", wsdlLocation = "file:E:\\IntelliJp\\safedata\\src\\main\\resources\\view-source_safedata1.r1soft.ro_9080_Policy2_wsdl.wsdl")
 public class Policy_Service
     extends Service
 {
@@ -30,7 +30,7 @@ public class Policy_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:C:\\fast\\safedata\\src\\main\\resources\\view-source_safedata1.r1soft.ro_9080_Policy2_wsdl.wsdl");
+            url = new URL("file:E:\\IntelliJp\\safedata\\src\\main\\resources\\view-source_safedata1.r1soft.ro_9080_Policy2_wsdl.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

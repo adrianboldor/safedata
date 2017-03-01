@@ -32,11 +32,12 @@ public class safedataServlet extends HttpServlet {
         System.out.println("got request to return servers on "+server+" ... ");
 
         safedataAPI apiObject = new safedataAPI();
+        safedataDatabase safedataDbObj = new safedataDatabase();
         JSONObject json = new JSONObject();
 
         json.put("server", server);
-        json.put("policyDescription", apiObject.getPolicies(username,password,server));
-        //json.put("policyDescription", apiObject.getPolicies(server));
+        //json.put("policyDescription", apiObject.getPolicies(username,password,server));
+        json.put("policyDescription", safedataDbObj.getPolicies(server));
 
         String result=json.toString();
         System.out.println("JSON response is"+result);

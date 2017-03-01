@@ -29,12 +29,12 @@ public class safedataDatabase {
             // 4. create a query statement
             Statement st = conn.createStatement();
 
-            String query = "SELECT servers.protectedserver FROM servers WHERE backupserver LIKE '"+backupServer+"'";
+            String query = "SELECT protected_servers.description FROM protected_servers FULL OUTER JOIN safedata_servers ON protected_servers.safedata_id=safedata_servers.id WHERE safedata_servers.hostname='safedata1.mxserver.ro';";
             // 5. execute a query
             ResultSet rs = st.executeQuery(query);
 
             while(rs.next()) {
-                serverList.add(rs.getString("protectedserver"));
+                serverList.add(rs.getString("description"));
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
