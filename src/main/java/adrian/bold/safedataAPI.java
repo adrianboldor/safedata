@@ -27,9 +27,12 @@ public class safedataAPI {
 
     public List<String> getPolicies(String username, String password,String backupServer) {
 
+        //get login data from env var
 
+        username=System.getenv("safedata_user");
+        password=System.getenv("safedata_pass");
 
-        //System.out.println(username+"  "+password);
+        System.out.println(username+"  "+password);
         List<Policy> policies = null;
         List<String> policyDescription = new LinkedList<String>();
 
