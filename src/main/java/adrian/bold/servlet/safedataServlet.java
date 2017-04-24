@@ -32,7 +32,7 @@ public class safedataServlet extends HttpServlet {
         System.out.println("got request to return servers on "+server+" ... ");
 
         safedataAPI apiObject = new safedataAPI();
-        safedataDatabase safedataDbObj = new safedataDatabase();
+        //safedataDatabase safedataDbObj = new safedataDatabase();
         JSONObject json = new JSONObject();
 
         json.put("server", server);

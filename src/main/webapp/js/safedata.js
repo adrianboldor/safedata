@@ -6,8 +6,10 @@
 
 function loadPolicyDescription(hostname){
 
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+    //var username = document.getElementById('username').value;
+    //var password = document.getElementById('password').value;
+    var username = "none";
+    var password = "none";
 
     if(username==null || username=="") {
 
